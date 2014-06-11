@@ -1,0 +1,1 @@
+<body<?php if($__body_class !== '') { echo ' class="'.$__body_class.'"'; } ?>>

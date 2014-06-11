@@ -1,0 +1,14 @@
+À modifier avant livraison:
+
+# php/connexion-bdd.php
+
+	- Infos de connexion à la BDD
+	- Variable $racine
+
+# php/deconnexion.php
+
+	- Header location
+
+# php/email-activation.php
+
+	- Variable $url

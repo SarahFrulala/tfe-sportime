@@ -1,0 +1,20 @@
+Options -MultiViews
+
+##########################################################################
+# Turn on the rewriting engine #
+##########################################################################
+
+RewriteEngine On
+
+##########################################################################
+# Rewrite rules #
+##########################################################################
+
+RewriteRule ^dashboard/?$						membre.php						[NC,L]
+RewriteRule ^profil/?$							profil.php						[NC,L]
+RewriteRule ^badges/?$							badges.php						[NC,L]
+RewriteRule ^amis/?$							mesamis.php						[NC,L]
+RewriteRule ^calendrier/?$						calendrier.php					[NC,L]
+RewriteRule ^organiser/?$						creation-evenement.php			[NC,L]
+RewriteRule ^deconnexion/?$						php/deconnexion.php				[NC,L]
+RewriteRule ^evenement/([a-z]+)/([0-9]+)/?$		evenement.php?sport=$1&id=$2	[NC,L]
