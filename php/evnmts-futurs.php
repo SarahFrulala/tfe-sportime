@@ -17,15 +17,26 @@ $reponse = $bdd->query("SELECT
                             e.confidentialite,
                             e.commentaire,
                             e.adresse,
+
+                            p.event_id AS particp_event,
+                            p.id_membres AS particip_membre,
+
                             m.id AS membre_id,
                             m.nom,
-                            m.prenom,
-                            m.email
+                            m.prenom
+
                         FROM evenement e
+
+                        LEFT JOIN participation p
+                        ON  p.event_id = e.id
+
                         LEFT JOIN membres m
                         ON e.id_membres = m.id
-                        WHERE m.id ='$id_utilisateur_connecte'
-                        ORDER BY e.id DESC 
+                        
+                        WHERE e.id_membres = '$id_utilisateur_connecte' OR p.id_membres = '$id_utilisateur_connecte' 
+                        
+                        ORDER BY e.dates DESC
+
                         LIMIT 3
                         ");
 

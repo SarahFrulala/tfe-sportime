@@ -111,7 +111,7 @@ body.calendrier {
 /* section 1 */
 
 .indexsection1.tfebeta {
-	height: 600px;
+	height: 690px;
 }
 
 .indexsection1.tfebeta  .credits {
@@ -954,7 +954,7 @@ body.calendrier {
 		}
 
 			.membre .menu nav ul li a:hover {
-				background: #242423;
+				background: #2C2C2B;
 			}
 
 		.membre .menu nav ul li img {
@@ -974,7 +974,7 @@ body.calendrier {
 	}
 
 	.membre .menu .sidebar-creer:hover {
-		background: #242423;
+		background: #2C2C2B;
 	}
 
 	.membre .menu .eventsfuturs  {
@@ -1013,7 +1013,7 @@ body.calendrier {
 		}
 
 			.membre .menu .logout a:hover{
-				background: #242423;
+				background: #2C2C2B;
 			}
 
 
@@ -1036,7 +1036,7 @@ body.calendrier {
 	}
 
 	.menu .eventsfuturs li:hover {
-		background: #242423;
+		background: #2C2C2B;
 	}
 
 	.menu .eventsfuturs li:first-child:hover {
@@ -1131,25 +1131,51 @@ body.calendrier {
 	transition: all .4s;
 }
 
-@media screen and (max-width : 740px) {
+
+
+.headercontent .search {
+	position: absolute;
+	right: 55px;
+
+	transition: all .4s;
+}
+
+.headercontent .search:hover {
+	right: 275px;
+	transition: all .4s;
+}
+
+@media screen and (max-width : 1000px) {
 	.headercontent input[type="text"].txt {
 		display: none;
 
 	}
-}
 
+	.headercontent .search {
+		display: none;
+	}
+
+	.headercontent .search:hover {
+		right: 55px;
+		transition: all .4s;
+	}	
+}
 
 .headercontent input[type="text"] {
 	float: left;
-	width: 300px;
+	width: 220px;
+	margin-left: 15px;
+	margin-top: 30px;
 	font-size: 14px;
 	text-transform: uppercase;
 	padding-left: 10px;
 	border: none;
+	height: 25px;
+	/* border-left: 1px solid #ccc; */
 	border-bottom: 1px solid #ccc;
 	background: rgba(255,255,255,.6);
 	font-family: 'lato', sans-serif;
-	transition:all .4s;
+	transition: all .4s;
 }
 
 @media screen and (max-width : 1000px) {
@@ -1166,18 +1192,19 @@ body.calendrier {
 
 
 .headercontent input[type="submit"] {
-	background:url('../img/icon-search.png'),transparent;
-		-webkit-appearance:none;
-	    -moz-appearance:none;
-	    appearance:none;
-	    cursor:pointer;
+	background: url('../img/icon-search.png') no-repeat center,transparent;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	cursor: pointer;
 	color: red;
+	/* background: #ff4d41; */
 	border: none;
 	float: left;
-	width: 21px;
-	height: 21px;
-	margin-top: 33px;
-	margin-left: -25px;
+	width: 50px;
+	height: 50px;
+	/* margin-top: 33px; */
+	/* margin-left: 45px; */
 }
 
 
@@ -1191,7 +1218,6 @@ body.calendrier {
 	font-size: 14px;
 	float: left;
 	margin-top: 20px;
-	margin-left: 100px;
 	display: block;
 	width: 300px;
 	height: 50px;
@@ -1202,22 +1228,114 @@ body.calendrier {
 	text-align: center;
 	line-height: 50px;
 	font-weight: 300;
+	margin-right: 60px;
 }
 
+.choixsport {
+	float: left;
+}
+
+.choixsport ul {
+  text-align: center;
+  display: inline;
+  margin: 0;
+  padding: 15px 4px 17px 0;
+  list-style: none;
+}
+
+.headercontent .cta-creerevnmt.choix {
+	width: 250px;
+	position: absolute;
+	cursor: pointer;
+	margin-top: 1px;
+	transition: all .4s;
+}
+
+.headercontent .cta-creerevnmt.choix:hover {
+	box-shadow: none;
+	outline: none;
+}
+
+.choixsport ul li {
+  display: inline-block;
+  position: relative;
+  background: #fff;
+  font-weight: 300;
+  width: 250px;
+  cursor: pointer;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.choixsport ul li:hover {
+  background: #2C2C2B;
+  color: #fff;
+}
+.choixsport ul li ul {
+  padding: 0;
+  position: absolute;
+  top: 51px;
+  left: 0;
+  width: 250px;
+  display: none;
+  opacity: 0;
+  -webkit-transiton: opacity 0.2s;
+  -moz-transition: opacity 0.2s;
+  -ms-transition: opacity 0.2s;
+  -o-transition: opacity 0.2s;
+  -transition: opacity 0.2s;
+}
+.choixsport ul li ul li a{ 
+  background: #15150f; 
+display: block;
+  color: #fff;
+  height: 60px;
+  line-height: 60px;
+  text-decoration: none;
+}
+.choixsport ul li ul li a:hover { background: #2C2C2B; }
+.choixsport ul li:hover ul {
+  display: block;
+  opacity: 1;
+}
+
+
+
 @media screen and (max-width : 1000px) {
+
+
 		.headercontent .cta-creerevnmt {
-		margin-left: 70px;
-		margin-bottom: 40px;
+		margin-left: 30px;
+		/*margin-bottom: 40px;*/
 		transition:all .4s;
+	}
+
+	.headercontent .cta-creerevnmt.choix {
+			margin-bottom: 40px;
+			transition: all .4s;
+		}
+
+	.choixsport ul li ul {
+		left: 30px;
 	}
 }
 
 @media screen and (max-width : 740px) {
+
+	.headercontent {
+			height: 320px;
+			transition: all .4s;
+		}
 		.headercontent .cta-creerevnmt {
 		margin-left: 30px;
-		margin-bottom: 40px;
+		/*margin-bottom: 40px;*/
 		transition:all .4s;
 	}
+		.headercontent .cta-creerevnmt.choix {
+			margin-bottom: 40px;
+		}
 }
 
 .headercontent .cta-creerevnmt:hover {
@@ -1284,9 +1402,30 @@ body.calendrier {
 	transition: .3s;
 }
 
+.participe-dash {
+	width: 22px;
+	height: 22px;
+	background: url('../img/icon-valid.png')no-repeat;
+	float: left;
+	margin-left: 15px;
+	margin-top: 6px;
+	opacity: .6;
+}
+
+.participe-dash-edit {
+	width: 22px;
+	height: 22px;
+	background: url('../img/icon-edit.png')no-repeat;
+	background-size: 22px;
+	float: left;
+	margin-left: 15px;
+	margin-top: 6px;
+}
+
 .info-evnt-dash-titre {
 	position: relative;
 	margin-bottom: 20px;
+	overflow: hidden;
 }
 
 .info-evnt-dash .info-evnt-dash-titre img {
@@ -1305,6 +1444,7 @@ body.calendrier {
 	font-size: 24px;
 	font-weight: 100;
 	text-transform: uppercase;
+	float: left;
 }
 
 .info-evnt-dash ul {
@@ -1312,6 +1452,11 @@ body.calendrier {
 	float: left;
 	margin-right: 50px;
 }
+
+.info-evnt-dash ul.li1-dash {
+	clear: both;
+}
+
 
 .info-evnt-dash ul li {
 	margin-bottom: 10px;

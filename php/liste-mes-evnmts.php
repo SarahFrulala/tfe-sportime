@@ -17,34 +17,35 @@ $reponse = $bdd->query("SELECT
                             e.confidentialite,
                             e.commentaire,
                             e.adresse,
-                            
+
+                            p.event_id AS p_event,
+                            p.id_membres AS p_membre,
+
                             m.id AS membre_id,
                             m.nom,
-                            m.prenom,
-                            m.email
-                        
-                            -- p.event_id,
-                            -- p.id_membres
+                            m.prenom
 
                         FROM evenement e
-                        
+
+                        LEFT JOIN participation p
+                        ON  p.event_id = e.id
+
                         LEFT JOIN membres m
                         ON e.id_membres = m.id
-                        WHERE m.id ='$id_utilisateur_connecte'
                         
-                        -- LEFT JOIN participation p
-                        -- ON e.id = p.event_id
-                        -- WHERE p.id_membres = '$id_utilisateur_connecte'
+                        WHERE e.id_membres = '$id_utilisateur_connecte' OR p.id_membres = '$id_utilisateur_connecte' 
+                        
+                        ORDER BY e.dates DESC
 
-                        ORDER BY e.id DESC 
                         ");
 
 $donnees = $reponse->fetchAll(PDO::FETCH_ASSOC);
 
+
+
 // echo '<pre>';
 // print_r($donnees);
 // echo '</pre>';
-
 
 foreach($donnees as $evenement) {
 
@@ -98,6 +99,16 @@ foreach($donnees as $evenement) {
                 <p><?php echo $date; ?></p>
                 <h3><?php echo $evenement['sport']; ?></h3>
                 <?php 
+                    if ($evenement['p_membre']==$id_utilisateur_connecte) {
+                         echo "<div class='participe-dash'></div>";
+                    }
+                   if ($evenement['creator_id']==$id_utilisateur_connecte) {
+                         echo "<div class='participe-dash-edit'></div>";
+                    }
+                
+
+                ?>
+                <?php 
 
                     if ($evenement['sport']=='hockey'){
                         echo "<img src='".$racine."/img/icon-hockey-333.png' width='45'/>";
@@ -144,4 +155,6 @@ foreach($donnees as $evenement) {
 $reponse->closeCursor(); // Termine le traitement de la requête
 
 ?>
+
+
 

@@ -19,7 +19,6 @@ require 'template-parts/body-start.php';
 	<div class="headercontent">
 		<h2>Hey <?php echo "$prenom_utilisateur_connecte"; ?>, bienvenue sur Sportime </h2>
 		
-		
 		<a class='cta-creerevnmt' href="<?php echo $racine; ?>/organiser">Créer un évenement</a>
 		
 		<div class="choixsport"> 
@@ -45,7 +44,7 @@ require 'template-parts/body-start.php';
 
 	<ul class="evenementliste">
 
-		<?php require 'php/liste-tt-evenement.php'; ?>
+		<?php require 'php/liste-foot-evenement.php'; ?>
 
 	</ul>
 </div>

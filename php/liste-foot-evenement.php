@@ -4,6 +4,7 @@
 require 'php/connexion-bdd.php';
 
 
+// On récupère tout le contenu de la table 
 $reponse = $bdd->query("SELECT
                             e.id AS event_id,
                             e.id_membres AS creator_id,
@@ -32,7 +33,9 @@ $reponse = $bdd->query("SELECT
                         LEFT JOIN membres m
                         ON e.id_membres = m.id
                         
-                        ORDER BY e.id DESC
+                        WHERE e.sport = 'foot'
+                        
+                        ORDER BY e.dates DESC
 
                         ");
 
@@ -50,7 +53,7 @@ foreach($donnees as $evenement) {
 
 ?>
 <li class="un-evnmt">
-    <a href="evenement/<?php echo $evenement['sport']."/".$evenement['event_id']; ?>">
+    <a href="<?php echo $racine ?>/evenement/<?php echo $evenement['sport']."/".$evenement['event_id']; ?>">
 
        <!--  <p class="moreinfo">En savoir plus</p> -->
        

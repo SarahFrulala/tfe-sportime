@@ -118,6 +118,8 @@ require 'php/session.php';
         }
     }
 
+   
+
     if(isset($_POST['supprimer'])) {
         if($_POST['supprimer']) {
 
@@ -151,9 +153,9 @@ require 'php/session.php';
                 $query = $bdd->exec($sql);
                 
               
-
-                echo '<META HTTP-EQUIV="Refresh" Content="0; URL=/evenement/'.$sport.'/'.$event_id.'">';    //LOCAL
-                exit;
+                header('Location: '.$racine.'/evenement/'.$sport.'/'.$event_id.'');
+                // echo '<META HTTP-EQUIV="Refresh" Content="0; URL=/evenement/'.$sport.'/'.$event_id.'">';    //LOCAL
+                // exit;
       
                 }
                 catch(Exception $e) {
@@ -312,12 +314,38 @@ require 'template-parts/sidebar.php';
                     }
                     else {
 
-                        if ($event_id = $event_id && $id_membres = $id_utilisateur_connecte){
+                        // if ($event_id = $event_id && $id_membres = $id_utilisateur_connecte){
+                        //     echo "<input type='submit' value='Se desister' name='participer'>";
+                        // }
+                        // else {
+                        //     echo "<input type='submit' value='Se desister' name='participer'>";
+                        // }
+
+                        $erreurs = 0;
+                        $erreur_participe_deja = NULL;
+
+                        // Vérification si le participant participe déjà 
+                        try {
+                            $sql = "SELECT id FROM participation WHERE event_id = '$event_id' AND id_membres = '$id_utilisateur_connecte'";
+                            $query = $bdd->query($sql); 
+                            $count = $query->fetchAll(PDO::FETCH_ASSOC);
+                        }
+                        catch(PDOException $e) {
+                            echo 'Erreur : '.$e->getMessage();
+                        } 
+
+                        if(!empty($count)) {
+                            $erreurs++;
+                        }
+
+                        if($erreurs == 0) {
                             echo "<input type='submit' value='Participer' name='participer'>";
                         }
                         else {
-                            echo "<input type='submit' value='Participer' name='participer'>";
+                            echo "<input type='submit' value='Se desister' name='desister'>";
+                            $erreurs .= '0';
                         }
+
                     }
                 ?>
 

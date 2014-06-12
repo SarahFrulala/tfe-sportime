@@ -11,6 +11,11 @@ RewriteEngine On
 ##########################################################################
 
 RewriteRule ^dashboard/?$						membre.php						[NC,L]
+RewriteRule ^dashboard/basket?$					membre-basket.php				[NC,L]
+RewriteRule ^dashboard/hockey?$					membre-hockey.php				[NC,L]
+RewriteRule ^dashboard/tennis?$					membre-tennis.php				[NC,L]
+RewriteRule ^dashboard/foot?$					membre-foot.php					[NC,L]
+RewriteRule ^dashboard/rugby?$					membre-rugby.php				[NC,L]
 RewriteRule ^profil/?$							profil.php						[NC,L]
 RewriteRule ^badges/?$							badges.php						[NC,L]
 RewriteRule ^amis/?$							mesamis.php						[NC,L]

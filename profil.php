@@ -43,7 +43,11 @@ require 'template-parts/sidebar.php';
 
 	<ul class="evenementliste">
 
+
+
 		<?php require 'php/liste-mes-evnmts.php'; ?>
+
+
 
 	</ul>
 
